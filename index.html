@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vitalix — Your body knows. Now you can too.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --aqua:      #0F5F72;
+      --orange:    #FF6520;
+      --bg:        #F6F6F6;
+      --card:      #FFFFFF;
+      --text:      #1C1A18;
+      --muted:     #7A7570;
+      --border:    #E8E8E8;
+      --accent-bg: rgba(255, 101, 32, 0.10);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(246, 246, 246, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      height: 64px;
+      display: flex;
+      align-items: center;
+      padding: 0 48px;
+    }
+    .nav-inner {
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+    .nav-logo span { color: var(--orange); }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--orange); }
+    .nav-cta {
+      background: var(--orange);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 9px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.9; transform: translateY(-1px); }
+
+    /* SHARED */
+    .section { padding: 96px 48px; }
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+    .section-bg-white  { background: var(--card); }
+    .section-bg-grey   { background: var(--bg); }
+    .section-bg-aqua   { background: var(--aqua); }
+    .section-bg-orange { background: var(--orange); }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      background: var(--accent-bg);
+      color: var(--orange);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+    }
+    .section-title {
+      font-size: 40px;
+      font-weight: 700;
+      letter-spacing: -0.8px;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+    .section-subtitle {
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 600px;
+      line-height: 1.65;
+    }
+
+    /* HERO */
+    .hero {
+      background: var(--aqua);
+      padding: 160px 48px 0;
+    }
+    .hero-inner { max-width: 1200px; margin: 0 auto; }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(255, 101, 32, 0.18);
+      color: var(--orange);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+    }
+    .hero h1 {
+      font-size: clamp(48px, 6vw, 76px);
+      font-weight: 700;
+      letter-spacing: -2px;
+      line-height: 1.05;
+      color: #fff;
+      margin-bottom: 28px;
+      max-width: 800px;
+    }
+    .hero h1 span { color: var(--orange); }
+    .hero-sub {
+      font-size: 18px;
+      color: rgba(255,255,255,0.72);
+      max-width: 600px;
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      background: var(--orange);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 14px 28px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 72px;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .hero-cta:hover { opacity: 0.9; transform: translateY(-2px); }
+
+    /* Stats bar */
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid rgba(255,255,255,0.12);
+    }
+    .stat-item {
+      padding: 32px 0;
+      border-right: 1px solid rgba(255,255,255,0.12);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-item:not(:first-child) { padding-left: 32px; }
+    .stat-number {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--orange);
+      letter-spacing: -1px;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-label {
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* NARRATIVE */
+    .narrative-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .narrative-quote {
+      font-size: 26px;
+      font-weight: 600;
+      line-height: 1.45;
+      letter-spacing: -0.3px;
+      color: var(--text);
+    }
+    .narrative-quote em { font-style: normal; color: var(--orange); }
+    .narrative-body { font-size: 16px; color: var(--muted); line-height: 1.8; }
+    .narrative-body p + p { margin-top: 20px; }
+
+    /* HOW IT WORKS */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+    }
+    .step-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 36px 32px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .step-card:hover { border-color: var(--orange); transform: translateY(-2px); }
+    .step-number {
+      width: 40px;
+      height: 40px;
+      background: var(--orange);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+    .step-title {
+      font-size: 19px;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+    .step-body { font-size: 15px; color: var(--muted); line-height: 1.7; }
+
+    /* METRICS */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 56px;
+    }
+    .metric-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .metric-card:hover { border-color: var(--orange); transform: translateY(-2px); }
+    .metric-name {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .metric-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--orange);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .metric-source { font-size: 13px; color: var(--muted); }
+
+    /* HARDWARE */
+    .hardware-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+    }
+    .hardware-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 36px 32px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .hardware-card:hover { border-color: var(--orange); transform: translateY(-2px); }
+    .hardware-price {
+      display: inline-block;
+      background: var(--accent-bg);
+      color: var(--orange);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+    }
+    .hardware-name {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.4px;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+    .hardware-desc {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+    .feature-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .feature-list li {
+      font-size: 14px;
+      color: var(--text);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .feature-list li::before {
+      content: '✓';
+      color: var(--orange);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* WHERE TO TEST */
+    .lab-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+      margin-bottom: 40px;
+    }
+    .lab-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .lab-card:hover { border-color: var(--orange); transform: translateY(-2px); }
+    .lab-name {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+      letter-spacing: -0.3px;
+    }
+    .lab-type {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--orange);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 16px;
+    }
+    .lab-body {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+    .lab-tests { display: flex; flex-wrap: wrap; gap: 8px; }
+    .lab-test-pill {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 100px;
+    }
+    .disclaimer-box {
+      background: var(--card);
+      border-left: 3px solid var(--aqua);
+      border-radius: 0 10px 10px 0;
+      padding: 20px 24px;
+    }
+    .disclaimer-box p { font-size: 13px; color: var(--muted); line-height: 1.65; }
+
+    /* FOR WHO */
+    .featured-card {
+      background: var(--aqua);
+      border-radius: 16px;
+      padding: 40px 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      margin-top: 48px;
+      margin-bottom: 24px;
+    }
+    .audience-tag {
+      display: inline-block;
+      background: rgba(255,101,32,0.25);
+      color: var(--orange);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+    }
+    .featured-left h3 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+    }
+    .featured-left p { font-size: 15px; color: rgba(255,255,255,0.7); line-height: 1.7; }
+    .featured-right { display: flex; flex-direction: column; gap: 14px; }
+    .featured-sub-item {
+      background: rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 16px 20px;
+    }
+    .featured-sub-item h4 { font-size: 14px; font-weight: 600; color: #fff; margin-bottom: 4px; }
+    .featured-sub-item p { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.5; }
+
+    .who-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .who-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .who-card:hover { border-color: var(--orange); transform: translateY(-2px); }
+    .who-card-tag {
+      display: inline-block;
+      background: var(--accent-bg);
+      color: var(--orange);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 100px;
+      margin-bottom: 14px;
+    }
+    .who-card h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.3px;
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+    .who-card p { font-size: 14px; color: var(--muted); line-height: 1.65; }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .about-title {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -0.7px;
+      line-height: 1.2;
+      color: var(--text);
+      position: sticky;
+      top: 88px;
+    }
+    .about-title em { font-style: normal; color: var(--orange); }
+    .about-body p {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.85;
+      margin-bottom: 24px;
+    }
+
+    /* PRIVACY */
+    .privacy-card {
+      background: var(--aqua);
+      border-radius: 16px;
+      padding: 48px 56px;
+      margin-top: 56px;
+    }
+    .privacy-quote {
+      font-size: 22px;
+      font-weight: 600;
+      color: #fff;
+      line-height: 1.5;
+      margin-bottom: 24px;
+      border-left: 3px solid var(--orange);
+      padding-left: 24px;
+    }
+    .privacy-detail {
+      font-size: 15px;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.75;
+      max-width: 720px;
+      margin-bottom: 36px;
+    }
+    .privacy-points {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .privacy-point {
+      background: rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 20px 24px;
+    }
+    .privacy-point h4 { font-size: 14px; font-weight: 600; color: #fff; margin-bottom: 6px; }
+    .privacy-point p { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.6; }
+
+    /* ROADMAP */
+    .roadmap-list {
+      display: flex;
+      flex-direction: column;
+      margin-top: 56px;
+      max-width: 820px;
+    }
+    .roadmap-item {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 40px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--border);
+      align-items: start;
+    }
+    .roadmap-item:first-child { border-top: 1px solid var(--border); }
+    .roadmap-period {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+      padding-top: 3px;
+    }
+    .roadmap-content h4 {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 6px;
+      letter-spacing: -0.2px;
+    }
+    .roadmap-content p { font-size: 14px; color: var(--muted); line-height: 1.65; }
+    .badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 3px 9px;
+      border-radius: 100px;
+      margin-left: 10px;
+      vertical-align: middle;
+    }
+    .badge-active  { background: var(--accent-bg); color: var(--orange); }
+    .badge-planned { background: var(--bg); color: var(--muted); border: 1px solid var(--border); }
+
+    /* CTA SECTION */
+    .cta-section {
+      background: var(--orange);
+      padding: 96px 48px;
+      text-align: center;
+    }
+    .cta-section h2 {
+      font-size: 52px;
+      font-weight: 700;
+      letter-spacing: -1.2px;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+    .cta-section p {
+      font-size: 18px;
+      color: rgba(255,255,255,0.82);
+      margin-bottom: 40px;
+    }
+    .cta-form {
+      display: flex;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    .cta-form input {
+      flex: 1;
+      padding: 14px 20px;
+      font-size: 15px;
+      font-family: 'Inter', sans-serif;
+      border: none;
+      border-radius: 10px 0 0 10px;
+      outline: none;
+      color: var(--text);
+    }
+    .cta-form button {
+      padding: 14px 24px;
+      background: #fff;
+      color: var(--orange);
+      font-size: 15px;
+      font-weight: 700;
+      font-family: 'Inter', sans-serif;
+      border: none;
+      border-radius: 0 10px 10px 0;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      white-space: nowrap;
+    }
+    .cta-form button:hover { opacity: 0.9; }
+
+    /* FOOTER */
+    footer {
+      background: var(--aqua);
+      padding: 56px 48px;
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 64px;
+    }
+    .footer-logo {
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 14px;
+      letter-spacing: -0.5px;
+    }
+    .footer-logo span { color: var(--orange); }
+    .footer-disclaimer {
+      font-size: 13px;
+      color: rgba(255,255,255,0.48);
+      line-height: 1.65;
+    }
+    .footer-right { display: flex; flex-direction: column; }
+    .footer-right h4 {
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.45);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+    .footer-right p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.68);
+      line-height: 1.7;
+    }
+    .footer-note {
+      margin-top: 20px;
+      font-size: 13px !important;
+      color: rgba(255,255,255,0.38) !important;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Vitalix<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Overview</a></li>
+      <li><a href="page-women.html">Women</a></li>
+      <li><a href="page-men.html">Men</a></li>
+    </ul>
+    <a href="#early-access" class="nav-cta">Early Access</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Be the best version of yourself. Factually.</div>
+    <h1>Your body knows.<br><span>Now you can too.</span></h1>
+    <p class="hero-sub">Just the facts. Vitalix connects your wearables, lab results, and DNA into one continuous picture of your health — so you can act on what your body is already telling you.</p>
+    <a href="#early-access" class="hero-cta">Request Early Access</a>
+    <div class="stats-bar">
+      <div class="stat-item">
+        <div class="stat-number">24/7</div>
+        <div class="stat-label">Continuous monitoring</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">9+</div>
+        <div class="stat-label">Data streams integrated</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">0×</div>
+        <div class="stat-label">Data sold or shared</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">EU</div>
+        <div class="stat-label">Built &amp; hosted in Europe</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NARRATIVE BAND -->
+<section class="section section-bg-white">
+  <div class="section-inner">
+    <div class="narrative-grid">
+      <div class="narrative-quote">
+        "A cardiologist looks at your heart. An endocrinologist looks at your hormones. Your GP has 10 minutes. <em>Nobody looks at you as a system.</em> Vitalix does exactly that."
+      </div>
+      <div class="narrative-body">
+        <p>Most health tools measure one thing. Your fitness tracker counts steps. Your blood test checks twelve values once a year. Your doctor sees you when something is wrong.</p>
+        <p>But your body is a system. Your heart rate variability tells you something about your nervous system. Your sleep architecture affects your hormones. Your inflammation markers connect to your recovery and your mood.</p>
+        <p>Vitalix is built on a single premise: the most useful health information comes from connecting the signals, not collecting them in isolation. We bring your continuous wearable data, your periodic lab results, and your genetic predispositions into one coherent picture — updated daily.</p>
+        <p>No diagnoses. No treatment advice. Just data, organised into understanding.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section section-bg-grey">
+  <div class="section-inner">
+    <div class="eyebrow">How it works</div>
+    <h2 class="section-title">Three steps to knowing your system</h2>
+    <p class="section-subtitle">No complicated setup. No specialist required. You connect the dots — we build the picture.</p>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-number">1</div>
+        <div class="step-title">Connect your hardware</div>
+        <p class="step-body">Link your Polar Loop and Withings BPM Vision. Add your BBT thermometer readings manually. Vitalix starts receiving your biometric stream immediately — heart rate, HRV, blood pressure, sleep, temperature, and more.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">2</div>
+        <div class="step-title">Build your baseline</div>
+        <p class="step-body">Over the first 4–8 weeks, Vitalix establishes what's normal for you specifically. Not a population average — your rhythms, your patterns, your variance. Upload lab results and DNA data to deepen the picture further.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">3</div>
+        <div class="step-title">Read your system</div>
+        <p class="step-body">Your dashboard shows how the signals interact. When something is shifting, you see it in context — not as an isolated alert, but as part of the broader story your body is telling. Readable by you. Shareable with any doctor.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE MEASURE -->
+<section class="section section-bg-white">
+  <div class="section-inner">
+    <div class="eyebrow">What we measure</div>
+    <h2 class="section-title">Every signal. In one place.</h2>
+    <p class="section-subtitle">Nine data streams, all connected. From the continuous to the periodic, from the physiological to the genetic.</p>
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-name"><span class="metric-dot"></span>HRV</div>
+        <div class="metric-source">Polar Loop — continuous</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-name"><span class="metric-dot"></span>Blood Pressure</div>
+        <div class="metric-source">Withings BPM Vision — on demand</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-name"><span class="metric-dot"></span>ECG + AFib Detection</div>
+        <div class="metric-source">Withings BPM Vision — on demand</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-name"><span class="metric-dot"></span>Sleep Architecture</div>
+        <div class="metric-source">Polar Loop — nightly</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-name"><span class="metric-dot"></span>Activity &amp; VO&#8322; Max</div>
+        <div class="metric-source">Polar Loop — continuous</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-name"><span class="metric-dot"></span>Resting Heart Rate</div>
+        <div class="metric-source">Polar Loop — continuous</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-name"><span class="metric-dot"></span>Body Temperature (BBT)</div>
+        <div class="metric-source">Manual entry — daily</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-name"><span class="metric-dot"></span>Blood Biomarkers</div>
+        <div class="metric-source">Lab integration — periodic</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-name"><span class="metric-dot"></span>DNA Markers</div>
+        <div class="metric-source">Dante Labs / 23andMe — one-time</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HARDWARE -->
+<section class="section section-bg-grey">
+  <div class="section-inner">
+    <div class="eyebrow">Hardware stack</div>
+    <h2 class="section-title">Chosen for accuracy. Not for marketing.</h2>
+    <p class="section-subtitle">Three devices. Total investment under €375. Medical-grade data, consumer-accessible price.</p>
+    <div class="hardware-grid">
+      <div class="hardware-card">
+        <div class="hardware-price">€179</div>
+        <div class="hardware-name">Polar Loop</div>
+        <p class="hardware-desc">24/7 wrist-worn tracker with validated HRV measurement and research-grade sleep staging.</p>
+        <ul class="feature-list">
+          <li>Continuous HRV monitoring</li>
+          <li>Sleep architecture staging</li>
+          <li>VO&#8322; Max estimation</li>
+          <li>Resting HR trend</li>
+          <li>Activity load tracking</li>
+        </ul>
+      </div>
+      <div class="hardware-card">
+        <div class="hardware-price">€179</div>
+        <div class="hardware-name">Withings BPM Vision</div>
+        <p class="hardware-desc">Clinically validated blood pressure monitor with single-lead ECG and AFib detection built in.</p>
+        <ul class="feature-list">
+          <li>Clinical-grade BP measurement</li>
+          <li>Single-lead ECG</li>
+          <li>AFib detection</li>
+          <li>Irregular rhythm alerts</li>
+          <li>Trend tracking over time</li>
+        </ul>
+      </div>
+      <div class="hardware-card">
+        <div class="hardware-price">€15</div>
+        <div class="hardware-name">BBT Thermometer</div>
+        <p class="hardware-desc">Basal body temperature tracking — particularly valuable for hormonal cycle mapping and thyroid monitoring.</p>
+        <ul class="feature-list">
+          <li>0.01°C resolution</li>
+          <li>Morning baseline measurement</li>
+          <li>Cycle phase correlation</li>
+          <li>Thyroid function indicator</li>
+          <li>Manual entry into Vitalix</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHERE TO TEST -->
+<section class="section section-bg-white">
+  <div class="section-inner">
+    <div class="eyebrow">Where to test</div>
+    <h2 class="section-title">Deeper data. Certified sources.</h2>
+    <p class="section-subtitle">Vitalix integrates with three certified labs. Order tests yourself — no referral required.</p>
+    <div class="lab-grid">
+      <div class="lab-card">
+        <div class="lab-name">Mijnlabtest.nl</div>
+        <div class="lab-type">Blood biomarkers — Netherlands</div>
+        <p class="lab-body">Direct-to-consumer blood testing with certified Dutch laboratories. Results typically within 48 hours. Full panel export to Vitalix.</p>
+        <div class="lab-tests">
+          <span class="lab-test-pill">Hormonal panel</span>
+          <span class="lab-test-pill">Inflammation (hs-CRP)</span>
+          <span class="lab-test-pill">Iron + ferritin</span>
+          <span class="lab-test-pill">Vitamin D</span>
+          <span class="lab-test-pill">Thyroid (TSH/T4)</span>
+        </div>
+      </div>
+      <div class="lab-card">
+        <div class="lab-name">Medivere</div>
+        <div class="lab-type">Blood biomarkers — Germany / EU</div>
+        <p class="lab-body">Germany-based lab with strong endocrine and metabolic panels. ISO 15189 certified. Available across the EU with postal sampling kits.</p>
+        <div class="lab-tests">
+          <span class="lab-test-pill">Testosterone + SHBG</span>
+          <span class="lab-test-pill">Cortisol rhythm</span>
+          <span class="lab-test-pill">Metabolic markers</span>
+          <span class="lab-test-pill">Micronutrients</span>
+        </div>
+      </div>
+      <div class="lab-card">
+        <div class="lab-name">Dante Labs</div>
+        <div class="lab-type">Whole genome sequencing — EU</div>
+        <p class="lab-body">Italian-based, GDPR-compliant whole genome sequencing. One-time test — lifetime data. Vitalix uses your genetic markers as a fixed layer beneath your real-time signals.</p>
+        <div class="lab-tests">
+          <span class="lab-test-pill">Cardiovascular risk</span>
+          <span class="lab-test-pill">Hormonal predispositions</span>
+          <span class="lab-test-pill">Drug metabolism</span>
+          <span class="lab-test-pill">Ancestry</span>
+        </div>
+      </div>
+    </div>
+    <div class="disclaimer-box">
+      <p><strong>Important:</strong> Vitalix is a personal health data platform, not a medical device. Lab testing is conducted independently through certified third-party laboratories. Vitalix does not provide diagnoses, medical advice, or treatment recommendations. Always consult a qualified healthcare professional for medical decisions.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOR WHO -->
+<section class="section section-bg-grey">
+  <div class="section-inner">
+    <div class="eyebrow">For who</div>
+    <h2 class="section-title">Built for people who don't wait for symptoms.</h2>
+    <div class="featured-card">
+      <div class="featured-left">
+        <div class="audience-tag">Featured profile</div>
+        <h3>Women, 25–35</h3>
+        <p>The most underserved group in preventive health. Vitalix is specifically designed to make the female system legible — cycle, hormones, sleep, and cardiovascular health — as one integrated picture.</p>
+      </div>
+      <div class="featured-right">
+        <div class="featured-sub-item">
+          <h4>Cycle-phase tracking</h4>
+          <p>Infradian rhythm mapped against your biometrics. Understand how your phases affect sleep, HRV, and energy.</p>
+        </div>
+        <div class="featured-sub-item">
+          <h4>Hormonal biomarkers</h4>
+          <p>Estrogen, progesterone, LH, FSH — correlated with your wearable signals over time.</p>
+        </div>
+        <div class="featured-sub-item">
+          <h4>Baseline before complexity</h4>
+          <p>Establish your normal before conditions like PCOS, endometriosis, or perimenopause change the picture.</p>
+        </div>
+      </div>
+    </div>
+    <div class="who-grid">
+      <div class="who-card">
+        <div class="who-card-tag">Preventive thinker</div>
+        <h3>You don't have a condition. You have standards.</h3>
+        <p>Your annual bloodwork is fine. But "fine" isn't the same as "optimised." You want to understand your baselines before they shift.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-card-tag">Serious athlete</div>
+        <h3>Training data without health context is just noise.</h3>
+        <p>You track performance obsessively. But HRV without biomarkers, and training load without recovery data, only tells half the story.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-card-tag">Women — hormonal conditions</div>
+        <h3>PCOS, endometriosis, thyroid — diagnosed or suspected.</h3>
+        <p>Conditions that are systematically underdiagnosed and poorly monitored. Continuous data changes the quality of every conversation with your doctor.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-card-tag">40+ optimiser</div>
+        <h3>Your biology is shifting. Know before you feel it.</h3>
+        <p>Testosterone, cardiovascular risk, metabolic function — all trend in a direction after 40. The baseline you build now determines how well you respond to what comes next.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section section-bg-white">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-title">Built on one idea: <em>coherence is intelligence.</em></div>
+      <div class="about-body">
+        <p>Modern medicine is extraordinary at fixing problems. It is significantly less equipped to prevent them. The tools exist — wearables, lab tests, genomics — but they were never designed to talk to each other. Vitalix is the layer that makes them coherent.</p>
+        <p>We built Vitalix around a concept we call the health data commons: the idea that the most valuable insights come not from any single measurement, but from the relationships between measurements over time. When your HRV drops the week your inflammation markers rise, that's not two data points — that's a signal. Vitalix is built to see those signals.</p>
+        <p>Vitalix is a product of SuperStories BV, an Amsterdam-based company building tools that give people meaningful access to their own data. We are not a wellness app. We are not a diagnostics company. We are an information platform — and we hold ourselves to the standards that implies: accuracy, privacy, and honesty about what data can and cannot tell you.</p>
+        <p>Vitalix is currently in early access. We are building with a small group of initial users before opening more broadly. If you want to be among the first, join the waitlist below.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRIVACY -->
+<section class="section section-bg-grey">
+  <div class="section-inner">
+    <div class="eyebrow">Privacy</div>
+    <h2 class="section-title">Your data. Full stop.</h2>
+    <div class="privacy-card">
+      <blockquote class="privacy-quote">"Your health data is yours. We process it to serve you. We do not sell it, share it, or monetise it in any form. Full stop."</blockquote>
+      <p class="privacy-detail">Vitalix is built and hosted entirely within the European Union, under GDPR. Your data is stored encrypted, processed locally where possible, and never used to train models that leave your account. We do not have an advertising business. We do not have data partnerships. Our business model is a subscription — which means our interests are aligned with yours: making the platform genuinely useful, not maximising data extraction.</p>
+      <div class="privacy-points">
+        <div class="privacy-point">
+          <h4>EU-hosted infrastructure</h4>
+          <p>All data stored and processed within EU jurisdiction. GDPR-compliant by design, not retrofit.</p>
+        </div>
+        <div class="privacy-point">
+          <h4>Zero data monetisation</h4>
+          <p>No ad business. No data sales. No third-party partnerships that involve your data. Never.</p>
+        </div>
+        <div class="privacy-point">
+          <h4>Full data portability</h4>
+          <p>Export everything, anytime. Delete everything, anytime. Your data in — your data out.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section class="section section-bg-white">
+  <div class="section-inner">
+    <div class="eyebrow">Roadmap</div>
+    <h2 class="section-title">Where we are. Where we're going.</h2>
+    <div class="roadmap-list">
+      <div class="roadmap-item">
+        <div class="roadmap-period">Q1–Q2 2026</div>
+        <div class="roadmap-content">
+          <h4>Early Access — closed beta <span class="badge badge-active">Active</span></h4>
+          <p>Hardware stack validated. Core data streams operational. Polar Loop + Withings BPM Vision integration live. First cohort of 50 users onboarded.</p>
+        </div>
+      </div>
+      <div class="roadmap-item">
+        <div class="roadmap-period">Q3 2026</div>
+        <div class="roadmap-content">
+          <h4>Lab integration + DNA layer <span class="badge badge-planned">Planned</span></h4>
+          <p>Mijnlabtest.nl and Medivere results import. Dante Labs genomic data integration. Baseline builder V1 — personal normal ranges across all signals.</p>
+        </div>
+      </div>
+      <div class="roadmap-item">
+        <div class="roadmap-period">Q4 2026</div>
+        <div class="roadmap-content">
+          <h4>Women's protocol — full release <span class="badge badge-planned">Planned</span></h4>
+          <p>Cycle-phase correlation engine. Infradian rhythm mapping. Hormonal panel integration. Full feature parity for the female system.</p>
+        </div>
+      </div>
+      <div class="roadmap-item">
+        <div class="roadmap-period">2027</div>
+        <div class="roadmap-content">
+          <h4>Open platform — public launch <span class="badge badge-planned">Planned</span></h4>
+          <p>Open waitlist removed. Subscription model active. Doctor-sharing export. Additional wearable compatibility. Longitudinal trend engine.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="early-access">
+  <div class="section-inner">
+    <h2>Know your system.</h2>
+    <p>Join the early access waitlist. We'll be in touch when your spot is ready.</p>
+    <form class="cta-form" onsubmit="return false;">
+      <input type="email" placeholder="your@email.com" />
+      <button type="submit">Request Access</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">Vitalix<span>.</span></div>
+      <p class="footer-disclaimer">Vitalix is a personal health data platform. It is not a medical device and does not provide diagnoses, medical advice, or treatment recommendations. Always consult a qualified healthcare professional for medical decisions.<br /><br />© 2026 SuperStories BV — Amsterdam, Netherlands. All rights reserved.</p>
+    </div>
+    <div class="footer-right">
+      <h4>Company</h4>
+      <p>SuperStories BV<br />Amsterdam, Netherlands</p>
+      <p class="footer-note">Built &amp; hosted in the EU &nbsp;·&nbsp; GDPR compliant &nbsp;·&nbsp; No data sold</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

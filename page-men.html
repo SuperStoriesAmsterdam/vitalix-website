@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vitalix for Men — Most men wait until something breaks. You don't have to.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --aqua:      #0F5F72;
+      --orange:    #FF6520;
+      --bg:        #F6F6F6;
+      --card:      #FFFFFF;
+      --text:      #1C1A18;
+      --muted:     #7A7570;
+      --border:    #E8E8E8;
+      --accent-bg: rgba(255, 101, 32, 0.10);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(246, 246, 246, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      height: 64px;
+      display: flex;
+      align-items: center;
+      padding: 0 48px;
+    }
+    .nav-inner {
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+    .nav-logo span { color: var(--orange); }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--orange); }
+    .nav-cta {
+      background: var(--orange);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 9px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.9; transform: translateY(-1px); }
+
+    /* SHARED */
+    .section { padding: 96px 48px; }
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+    .section-bg-white  { background: var(--card); }
+    .section-bg-grey   { background: var(--bg); }
+    .section-bg-aqua   { background: var(--aqua); }
+    .section-bg-orange { background: var(--orange); }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      background: var(--accent-bg);
+      color: var(--orange);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+    }
+    .section-title {
+      font-size: 40px;
+      font-weight: 700;
+      letter-spacing: -0.8px;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+    .section-subtitle {
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 600px;
+      line-height: 1.65;
+    }
+
+    /* HERO */
+    .hero {
+      background: var(--aqua);
+      padding: 160px 48px 96px;
+    }
+    .hero-inner { max-width: 1200px; margin: 0 auto; }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(255, 101, 32, 0.18);
+      color: var(--orange);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+    }
+    .hero h1 {
+      font-size: clamp(44px, 5.5vw, 72px);
+      font-weight: 700;
+      letter-spacing: -2px;
+      line-height: 1.05;
+      color: #fff;
+      margin-bottom: 28px;
+      max-width: 780px;
+    }
+    .hero h1 span { color: var(--orange); }
+    .hero-sub {
+      font-size: 18px;
+      color: rgba(255,255,255,0.72);
+      max-width: 580px;
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      background: var(--orange);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 14px 28px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .hero-cta:hover { opacity: 0.9; transform: translateY(-2px); }
+
+    /* STATS BAND */
+    .stats-band {
+      background: #0A4F60;
+      padding: 72px 48px;
+    }
+    .stats-inner { max-width: 1200px; margin: 0 auto; }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+    .stat-item {
+      padding-right: 40px;
+      border-right: 1px solid rgba(255,255,255,0.12);
+    }
+    .stat-item:last-child { border-right: none; padding-right: 0; }
+    .stat-item:not(:first-child) { padding-left: 40px; }
+    .stat-number {
+      font-size: 38px;
+      font-weight: 700;
+      color: var(--orange);
+      letter-spacing: -1.2px;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .stat-label {
+      font-size: 14px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.5;
+    }
+
+    /* THE PROBLEM */
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .problem-quote {
+      font-size: 26px;
+      font-weight: 600;
+      line-height: 1.45;
+      letter-spacing: -0.3px;
+      color: var(--text);
+    }
+    .problem-quote em { font-style: normal; color: var(--orange); }
+    .fact-cards { display: flex; flex-direction: column; gap: 20px; }
+    .fact-card {
+      border-left: 3px solid var(--orange);
+      padding: 20px 24px;
+      background: var(--bg);
+      border-radius: 0 10px 10px 0;
+    }
+    .fact-card h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .fact-card p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+    /* WHAT WE TRACK */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 56px;
+    }
+    .metric-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .metric-card:hover { border-color: var(--orange); transform: translateY(-2px); }
+    .metric-name {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .metric-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--orange);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .metric-source { font-size: 13px; color: var(--muted); }
+
+    /* HARDWARE */
+    .hardware-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+    }
+    .hardware-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 36px 32px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .hardware-card:hover { border-color: var(--orange); transform: translateY(-2px); }
+    .hardware-price {
+      display: inline-block;
+      background: var(--accent-bg);
+      color: var(--orange);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+    }
+    .hardware-name {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.4px;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+    .hardware-desc {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+    .feature-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .feature-list li {
+      font-size: 14px;
+      color: var(--text);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .feature-list li::before {
+      content: '✓';
+      color: var(--orange);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* FOR WHO */
+    .for-who-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+    }
+    .for-who-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .for-who-card:hover { border-color: var(--orange); transform: translateY(-2px); }
+    .for-who-age {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--orange);
+      letter-spacing: -0.8px;
+      margin-bottom: 8px;
+    }
+    .for-who-card h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.3px;
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+    .for-who-card p { font-size: 14px; color: var(--muted); line-height: 1.65; }
+    .for-who-features {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .for-who-feature {
+      font-size: 13px;
+      color: var(--text);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .for-who-feature::before {
+      content: '✓';
+      color: var(--orange);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* CTA SECTION */
+    .cta-section {
+      background: var(--orange);
+      padding: 96px 48px;
+      text-align: center;
+    }
+    .cta-section h2 {
+      font-size: 52px;
+      font-weight: 700;
+      letter-spacing: -1.2px;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+    .cta-section p {
+      font-size: 18px;
+      color: rgba(255,255,255,0.82);
+      margin-bottom: 40px;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cta-form {
+      display: flex;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    .cta-form input {
+      flex: 1;
+      padding: 14px 20px;
+      font-size: 15px;
+      font-family: 'Inter', sans-serif;
+      border: none;
+      border-radius: 10px 0 0 10px;
+      outline: none;
+      color: var(--text);
+    }
+    .cta-form button {
+      padding: 14px 24px;
+      background: #fff;
+      color: var(--orange);
+      font-size: 15px;
+      font-weight: 700;
+      font-family: 'Inter', sans-serif;
+      border: none;
+      border-radius: 0 10px 10px 0;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      white-space: nowrap;
+    }
+    .cta-form button:hover { opacity: 0.9; }
+
+    /* FOOTER */
+    footer {
+      background: var(--aqua);
+      padding: 56px 48px;
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 64px;
+    }
+    .footer-logo {
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 14px;
+      letter-spacing: -0.5px;
+    }
+    .footer-logo span { color: var(--orange); }
+    .footer-disclaimer {
+      font-size: 13px;
+      color: rgba(255,255,255,0.48);
+      line-height: 1.65;
+    }
+    .footer-right { display: flex; flex-direction: column; }
+    .footer-right h4 {
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.45);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+    .footer-right p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.68);
+      line-height: 1.7;
+    }
+    .footer-note {
+      margin-top: 20px;
+      font-size: 13px !important;
+      color: rgba(255,255,255,0.38) !important;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Vitalix<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Overview</a></li>
+      <li><a href="page-women.html">Women</a></li>
+      <li><a href="page-men.html" class="active">Men</a></li>
+    </ul>
+    <a href="#early-access" class="nav-cta">Early Access</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Vitalix for Men</div>
+    <h1>Most men wait until something breaks.<br><span>You don't have to.</span></h1>
+    <p class="hero-sub">Cardiovascular events. Metabolic decline. Testosterone drop. The early signals are there — years before symptoms. Vitalix is built to see them.</p>
+    <a href="#early-access" class="hero-cta">Request Early Access</a>
+  </div>
+</section>
+
+<!-- STATS BAND -->
+<div class="stats-band">
+  <div class="stats-inner">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-number">50%</div>
+        <div class="stat-label">of men who die from a heart attack had no prior symptoms</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">1 in 3</div>
+        <div class="stat-label">men over 45 has metabolic syndrome — most don't know it</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">40%</div>
+        <div class="stat-label">testosterone decline per decade from age 30 onwards</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">5 yrs</div>
+        <div class="stat-label">life expectancy gap between men and women — most of it preventable</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- THE PROBLEM -->
+<section class="section section-bg-white">
+  <div class="section-inner">
+    <div class="problem-grid">
+      <div class="problem-quote">
+        "The medical system is excellent at treating men once something is visibly wrong. It is not built to catch the slow, quiet drift that precedes almost every major health event. <em>That drift is measurable. You just need the right instruments.</em>"
+      </div>
+      <div class="fact-cards">
+        <div class="fact-card">
+          <h4>Symptoms without context</h4>
+          <p>Fatigue, reduced recovery, lower motivation, mild weight gain — these are often dismissed as stress or ageing. When they're measurable physiological signals, they're the earliest warning the body issues. Vitalix makes the invisible visible.</p>
+        </div>
+        <div class="fact-card">
+          <h4>The annual check-up gap</h4>
+          <p>A once-a-year blood test is a photograph. Your cardiovascular system, hormonal profile, and metabolic function change continuously. Twelve data points per year is not monitoring — it's sampling. Vitalix is continuous.</p>
+        </div>
+        <div class="fact-card">
+          <h4>Training harder isn't always the answer</h4>
+          <p>Many men optimise the output — training volume, performance — without understanding the system underneath. HRV, recovery, sleep quality, and hormonal status determine how much your body can adapt. Knowing your floor means you stop ignoring it.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE TRACK -->
+<section class="section section-bg-grey">
+  <div class="section-inner">
+    <div class="eyebrow">What we track</div>
+    <h2 class="section-title">The signals that matter. Before they become symptoms.</h2>
+    <p class="section-subtitle">Nine data streams, continuously correlated. Cardiovascular, metabolic, hormonal — in one coherent picture.</p>
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-name"><span class="metric-dot"></span>HRV</div>
+        <div class="metric-source">Polar Loop — continuous, recovery-correlated</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-name"><span class="metric-dot"></span>Blood Pressure</div>
+        <div class="metric-source">Withings BPM Vision — on demand</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-name"><span class="metric-dot"></span>ECG + AFib Detection</div>
+        <div class="metric-source">Withings BPM Vision — on demand</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-name"><span class="metric-dot"></span>Sleep Architecture</div>
+        <div class="metric-source">Polar Loop — nightly staging</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-name"><span class="metric-dot"></span>Activity + Recovery</div>
+        <div class="metric-source">Polar Loop — load vs. readiness</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-name"><span class="metric-dot"></span>Resting HR trend</div>
+        <div class="metric-source">Polar Loop — longitudinal baseline</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-name"><span class="metric-dot"></span>Testosterone + hormones</div>
+        <div class="metric-source">Lab — free/total testosterone, SHBG, LH, FSH</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-name"><span class="metric-dot"></span>Metabolic markers</div>
+        <div class="metric-source">Lab — glucose, insulin, HbA1c, lipids</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-name"><span class="metric-dot"></span>Inflammation (hs-CRP)</div>
+        <div class="metric-source">Lab — periodic, trend-tracked</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HARDWARE -->
+<section class="section section-bg-white">
+  <div class="section-inner">
+    <div class="eyebrow">Hardware stack</div>
+    <h2 class="section-title">Chosen for accuracy. Not for marketing.</h2>
+    <p class="section-subtitle">Three devices. Total investment under €375. Medical-grade data, consumer-accessible price.</p>
+    <div class="hardware-grid">
+      <div class="hardware-card">
+        <div class="hardware-price">€179</div>
+        <div class="hardware-name">Polar Loop</div>
+        <p class="hardware-desc">24/7 wrist-worn tracker with validated HRV measurement and research-grade sleep staging. Built for athletes, accurate enough for clinical context.</p>
+        <ul class="feature-list">
+          <li>Continuous HRV monitoring</li>
+          <li>Sleep architecture staging</li>
+          <li>VO&#8322; Max estimation</li>
+          <li>Resting HR trend</li>
+          <li>Training load tracking</li>
+        </ul>
+      </div>
+      <div class="hardware-card">
+        <div class="hardware-price">€179</div>
+        <div class="hardware-name">Withings BPM Vision</div>
+        <p class="hardware-desc">Clinically validated blood pressure monitor with single-lead ECG and AFib detection. The most important 5-minute habit a man over 30 can build.</p>
+        <ul class="feature-list">
+          <li>Clinical-grade BP measurement</li>
+          <li>Single-lead ECG</li>
+          <li>AFib detection</li>
+          <li>Irregular rhythm alerts</li>
+          <li>Trend tracking over time</li>
+        </ul>
+      </div>
+      <div class="hardware-card">
+        <div class="hardware-price">€15</div>
+        <div class="hardware-name">BBT Thermometer</div>
+        <p class="hardware-desc">Optional for men, but useful as a basal metabolic indicator — resting temperature correlates with thyroid function and recovery state.</p>
+        <ul class="feature-list">
+          <li>0.01°C resolution</li>
+          <li>Morning baseline measurement</li>
+          <li>Thyroid function indicator</li>
+          <li>Recovery state correlation</li>
+          <li>Manual entry into Vitalix</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOR WHO -->
+<section class="section section-bg-grey">
+  <div class="section-inner">
+    <div class="eyebrow">For who</div>
+    <h2 class="section-title">Built for men who want to understand their system — not just optimise one variable.</h2>
+    <div class="for-who-grid">
+      <div class="for-who-card">
+        <div class="for-who-age">Ages 25–35</div>
+        <h3>Build the baseline while your system is at its peak.</h3>
+        <p>This is the decade when men feel invincible — and when the habits that determine the next 40 years are set. Building a health baseline now is the highest-leverage preventive action available.</p>
+        <div class="for-who-features">
+          <div class="for-who-feature">Cardiovascular baseline establishment</div>
+          <div class="for-who-feature">Testosterone + hormonal reference point</div>
+          <div class="for-who-feature">HRV and recovery optimisation</div>
+          <div class="for-who-feature">Performance vs. health correlation</div>
+        </div>
+      </div>
+      <div class="for-who-card">
+        <div class="for-who-age">Ages 35–50</div>
+        <h3>Performance meets prevention. This is where both matter.</h3>
+        <p>Testosterone starts its slow decline. Cardiovascular risk begins to accumulate. Metabolic function shifts. Recovery takes longer. This is the decade where understanding your system — not just pushing it — changes your trajectory.</p>
+        <div class="for-who-features">
+          <div class="for-who-feature">Testosterone decline monitoring</div>
+          <div class="for-who-feature">Metabolic syndrome early detection</div>
+          <div class="for-who-feature">Cardiovascular risk stratification</div>
+          <div class="for-who-feature">Recovery quality tracking</div>
+        </div>
+      </div>
+      <div class="for-who-card">
+        <div class="for-who-age">Ages 50+</div>
+        <h3>Longevity isn't luck. It's measurement.</h3>
+        <p>The men who age well at 70 made decisions at 50 that the others didn't. Not dramatic interventions — just continuous awareness, acted on early. Vitalix is the infrastructure for that awareness.</p>
+        <div class="for-who-features">
+          <div class="for-who-feature">Longitudinal cardiovascular tracking</div>
+          <div class="for-who-feature">AFib and arrhythmia monitoring</div>
+          <div class="for-who-feature">Metabolic and inflammatory trends</div>
+          <div class="for-who-feature">Doctor-shareable health record</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="early-access">
+  <div class="section-inner">
+    <h2>Stop guessing. Start knowing.</h2>
+    <p>Join the early access waitlist for Vitalix. We'll be in touch when your spot is ready.</p>
+    <form class="cta-form" onsubmit="return false;">
+      <input type="email" placeholder="your@email.com" />
+      <button type="submit">Request Access</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">Vitalix<span>.</span></div>
+      <p class="footer-disclaimer">Vitalix is a personal health data platform. It is not a medical device and does not provide diagnoses, medical advice, or treatment recommendations. Always consult a qualified healthcare professional for medical decisions.<br /><br />© 2026 SuperStories BV — Amsterdam, Netherlands. All rights reserved.</p>
+    </div>
+    <div class="footer-right">
+      <h4>Company</h4>
+      <p>SuperStories BV<br />Amsterdam, Netherlands</p>
+      <p class="footer-note">Built &amp; hosted in the EU &nbsp;·&nbsp; GDPR compliant &nbsp;·&nbsp; No data sold</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
