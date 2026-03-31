@@ -397,81 +397,78 @@
     }
     .disclaimer-box p { font-size: 13px; color: var(--muted); line-height: 1.65; }
 
-    /* FOR WHO */
-    .featured-card {
-      background: var(--aqua);
-      border-radius: 16px;
-      padding: 40px 48px;
+    /* FOR WHO — SPLIT */
+    .split-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      align-items: center;
+      gap: 24px;
       margin-top: 48px;
-      margin-bottom: 24px;
     }
-    .audience-tag {
-      display: inline-block;
-      background: rgba(255,101,32,0.25);
-      color: var(--orange);
+    .split-card {
+      border-radius: 16px;
+      padding: 40px 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .split-card:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.10); }
+    .split-card--women {
+      background: var(--aqua);
+    }
+    .split-card--men {
+      background: #1C1A18;
+    }
+    .split-card-label {
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      padding: 5px 12px;
-      border-radius: 100px;
-      margin-bottom: 16px;
+      color: rgba(255,255,255,0.5);
     }
-    .featured-left h3 {
-      font-size: 28px;
+    .split-card h3 {
+      font-size: 26px;
       font-weight: 700;
       color: #fff;
       letter-spacing: -0.5px;
-      margin-bottom: 12px;
+      line-height: 1.2;
+      margin: 0;
     }
-    .featured-left p { font-size: 15px; color: rgba(255,255,255,0.7); line-height: 1.7; }
-    .featured-right { display: flex; flex-direction: column; gap: 14px; }
-    .featured-sub-item {
-      background: rgba(255,255,255,0.1);
-      border-radius: 10px;
-      padding: 16px 20px;
+    .split-card--women h3 span { color: #E8786C; }
+    .split-card--men h3 span { color: var(--orange); }
+    .split-card > p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.62);
+      line-height: 1.7;
+      margin: 0;
     }
-    .featured-sub-item h4 { font-size: 14px; font-weight: 600; color: #fff; margin-bottom: 4px; }
-    .featured-sub-item p { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.5; }
-
-    .who-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
+    .split-card-features {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 4px;
     }
-    .who-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 32px;
-      transition: border-color 0.2s, transform 0.2s;
+    .split-feature {
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      padding-left: 16px;
+      position: relative;
     }
-    .who-card:hover { border-color: var(--orange); transform: translateY(-2px); }
-    .who-card-tag {
-      display: inline-block;
-      background: var(--accent-bg);
-      color: var(--orange);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 4px 10px;
-      border-radius: 100px;
-      margin-bottom: 14px;
+    .split-feature::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: rgba(255,255,255,0.3);
     }
-    .who-card h3 {
-      font-size: 17px;
-      font-weight: 700;
-      color: var(--text);
-      letter-spacing: -0.3px;
-      margin-bottom: 8px;
-      line-height: 1.3;
+    .split-cta {
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+      margin-top: auto;
+      padding-top: 12px;
+      border-top: 1px solid rgba(255,255,255,0.12);
     }
-    .who-card p { font-size: 14px; color: var(--muted); line-height: 1.65; }
 
     /* ABOUT */
     .about-grid {
@@ -856,29 +853,31 @@
   <div class="section-inner">
     <div class="eyebrow">Where to test</div>
     <h2 class="section-title">Deeper data. Certified sources.</h2>
-    <p class="section-subtitle">Vitalix integrates with three certified labs. Order tests yourself — no referral required.</p>
+    <p class="section-subtitle">Vitalix integrates with certified labs. Order tests yourself — no referral required. Recommended cadence: <strong>5× per year</strong> for blood panels.</p>
     <div class="lab-grid">
       <div class="lab-card">
         <div class="lab-name">Mijnlabtest.nl</div>
-        <div class="lab-type">Blood biomarkers — Netherlands</div>
-        <p class="lab-body">Direct-to-consumer blood testing with certified Dutch laboratories. Results typically within 48 hours. Full panel export to Vitalix.</p>
+        <div class="lab-type">Blood + urine — Netherlands</div>
+        <p class="lab-body">Direct-to-consumer blood and urine testing with certified Dutch laboratories. Results within 48 hours. Full panel export to Vitalix.</p>
         <div class="lab-tests">
           <span class="lab-test-pill">Hormonal panel</span>
           <span class="lab-test-pill">Inflammation (hs-CRP)</span>
           <span class="lab-test-pill">Iron + ferritin</span>
           <span class="lab-test-pill">Vitamin D</span>
           <span class="lab-test-pill">Thyroid (TSH/T4)</span>
+          <span class="lab-test-pill">Urine metabolites</span>
         </div>
       </div>
       <div class="lab-card">
         <div class="lab-name">Medivere</div>
-        <div class="lab-type">Blood biomarkers — Germany / EU</div>
-        <p class="lab-body">Germany-based lab with strong endocrine and metabolic panels. ISO 15189 certified. Available across the EU with postal sampling kits.</p>
+        <div class="lab-type">Blood + saliva — Germany / EU</div>
+        <p class="lab-body">Germany-based lab with strong endocrine and metabolic panels, including saliva-based cortisol rhythm testing. ISO 15189 certified. Postal sampling kits across the EU.</p>
         <div class="lab-tests">
           <span class="lab-test-pill">Testosterone + SHBG</span>
-          <span class="lab-test-pill">Cortisol rhythm</span>
+          <span class="lab-test-pill">Cortisol rhythm (saliva)</span>
           <span class="lab-test-pill">Metabolic markers</span>
           <span class="lab-test-pill">Micronutrients</span>
+          <span class="lab-test-pill">Adrenal function</span>
         </div>
       </div>
       <div class="lab-card">
@@ -904,48 +903,32 @@
   <div class="section-inner">
     <div class="eyebrow">For who</div>
     <h2 class="section-title">Built for people who don't wait for symptoms.</h2>
-    <div class="featured-card">
-      <div class="featured-left">
-        <div class="audience-tag">Featured profile</div>
-        <h3>Women, 25–35</h3>
-        <p>The most underserved group in preventive health. Vitalix is specifically designed to make the female system legible — cycle, hormones, sleep, and cardiovascular health — as one integrated picture.</p>
-      </div>
-      <div class="featured-right">
-        <div class="featured-sub-item">
-          <h4>Cycle-phase tracking</h4>
-          <p>Infradian rhythm mapped against your biometrics. Understand how your phases affect sleep, HRV, and energy.</p>
+    <p class="section-subtitle" style="margin-bottom: 48px;">Two versions of Vitalix. Same rigour. Different biology.</p>
+    <div class="split-grid">
+      <a href="page-women.html" class="split-card split-card--women">
+        <div class="split-card-label">Vitalix for Women</div>
+        <h3>Medicine was built around the male body.<br><span>Yours deserves better.</span></h3>
+        <p>Cycle-phase tracking, hormonal biomarkers, and cardiovascular monitoring — designed for the complexity of the female system. The most underserved group in preventive health, finally with a tool built for them.</p>
+        <div class="split-card-features">
+          <div class="split-feature">Cycle-phase biometric tracking</div>
+          <div class="split-feature">Hormonal biomarkers (estrogen, LH, FSH)</div>
+          <div class="split-feature">Endometriosis, PCOS &amp; thyroid protocols</div>
+          <div class="split-feature">Perimenopause early detection</div>
         </div>
-        <div class="featured-sub-item">
-          <h4>Hormonal biomarkers</h4>
-          <p>Estrogen, progesterone, LH, FSH — correlated with your wearable signals over time.</p>
+        <div class="split-cta">Vitalix for Women →</div>
+      </a>
+      <a href="page-men.html" class="split-card split-card--men">
+        <div class="split-card-label">Vitalix for Men</div>
+        <h3>Most men wait until something breaks.<br><span>You don't have to.</span></h3>
+        <p>Cardiovascular risk, metabolic function, testosterone — the signals that shift years before symptoms appear. The baseline you build now determines how well you respond to what's coming.</p>
+        <div class="split-card-features">
+          <div class="split-feature">Cardiovascular &amp; HRV monitoring</div>
+          <div class="split-feature">Metabolic syndrome early markers</div>
+          <div class="split-feature">Testosterone &amp; hormonal baseline</div>
+          <div class="split-feature">40+ shift detection</div>
         </div>
-        <div class="featured-sub-item">
-          <h4>Baseline before complexity</h4>
-          <p>Establish your normal before conditions like PCOS, endometriosis, or perimenopause change the picture.</p>
-        </div>
-      </div>
-    </div>
-    <div class="who-grid">
-      <div class="who-card">
-        <div class="who-card-tag">Preventive thinker</div>
-        <h3>You don't have a condition. You have standards.</h3>
-        <p>Your annual bloodwork is fine. But "fine" isn't the same as "optimised." You want to understand your baselines before they shift.</p>
-      </div>
-      <div class="who-card">
-        <div class="who-card-tag">Serious athlete</div>
-        <h3>Training data without health context is just noise.</h3>
-        <p>You track performance obsessively. But HRV without biomarkers, and training load without recovery data, only tells half the story.</p>
-      </div>
-      <div class="who-card">
-        <div class="who-card-tag">Women — hormonal conditions</div>
-        <h3>PCOS, endometriosis, thyroid — diagnosed or suspected.</h3>
-        <p>Conditions that are systematically underdiagnosed and poorly monitored. Continuous data changes the quality of every conversation with your doctor.</p>
-      </div>
-      <div class="who-card">
-        <div class="who-card-tag">40+ optimiser</div>
-        <h3>Your biology is shifting. Know before you feel it.</h3>
-        <p>Testosterone, cardiovascular risk, metabolic function — all trend in a direction after 40. The baseline you build now determines how well you respond to what comes next.</p>
-      </div>
+        <div class="split-cta">Vitalix for Men →</div>
+      </a>
     </div>
   </div>
 </section>
