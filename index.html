@@ -666,6 +666,64 @@
       font-size: 13px !important;
       color: rgba(255,255,255,0.38) !important;
     }
+
+    /* ── MOBILE ─────────────────────────────────────────── */
+    @media (max-width: 768px) {
+
+      /* Nav */
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .nav-cta { padding: 10px 16px; font-size: 13px; }
+
+      /* Hero */
+      .hero { padding: 100px 20px 60px; }
+      .hero h1 { font-size: 36px; }
+
+      /* Stats bar (4-col → 2-col) */
+      .stats-bar { grid-template-columns: repeat(2, 1fr); }
+
+      /* Sections */
+      .section { padding: 60px 20px; }
+
+      /* Narrative 2-col → 1-col */
+      .narrative-grid { grid-template-columns: 1fr; gap: 40px; }
+
+      /* Steps 3-col → 1-col */
+      .steps-grid { grid-template-columns: 1fr; }
+
+      /* Metrics 3-col → 1-col */
+      .metrics-grid { grid-template-columns: 1fr; }
+
+      /* Hardware 3-col → 1-col */
+      .hardware-grid { grid-template-columns: 1fr; }
+
+      /* Split 2-col → 1-col */
+      .split-grid { grid-template-columns: 1fr; }
+
+      /* About 2-col → 1-col */
+      .about-grid { grid-template-columns: 1fr; gap: 32px; }
+      .about-title { position: static; }
+
+      /* Privacy points 3-col → 1-col */
+      .privacy-points { grid-template-columns: 1fr; }
+
+      /* Roadmap item 2-col → 1-col */
+      .roadmap-item { grid-template-columns: 1fr; gap: 8px; }
+
+      /* CTA form stack */
+      .cta-section { padding: 60px 20px; }
+      .cta-section h2 { font-size: 32px; }
+      .cta-form { flex-direction: column; }
+      .cta-form input { border-radius: 10px 10px 0 0; }
+      .cta-form button { border-radius: 0 0 10px 10px; }
+
+      /* Footer 2-col → 1-col */
+      footer { padding: 48px 20px; }
+      .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+
+      /* Section title scale */
+      .section-title { font-size: 28px; }
+    }
   </style>
 </head>
 <body>
@@ -738,7 +796,7 @@
       <div class="step-card">
         <div class="step-number">1</div>
         <div class="step-title">Connect your hardware</div>
-        <p class="step-body">Link your Polar Loop and Withings BPM Vision. Add your BBT thermometer readings manually. Vitalix starts receiving your biometric stream immediately — heart rate, HRV, blood pressure, sleep, temperature, and more.</p>
+        <p class="step-body">Link your Polar Loop and Withings BPM Vision. Vitalix starts receiving your biometric stream immediately — heart rate, HRV, blood pressure, sleep, temperature, and more.</p>
       </div>
       <div class="step-card">
         <div class="step-number">2</div>
@@ -810,7 +868,7 @@
   <div class="section-inner">
     <div class="eyebrow">Hardware stack</div>
     <h2 class="section-title">Chosen for accuracy. Not for marketing.</h2>
-    <p class="section-subtitle">Three devices. Total investment under €375. Medical-grade data, consumer-accessible price.</p>
+    <p class="section-subtitle">Three devices. Total investment under €325. Medical-grade data, consumer-accessible price.</p>
     <div class="hardware-grid">
       <div class="hardware-card">
         <div class="hardware-price">€179</div>
@@ -837,15 +895,15 @@
         </ul>
       </div>
       <div class="hardware-card">
-        <div class="hardware-price">€99</div>
-        <div class="hardware-name">Withings Thermo</div>
-        <p class="hardware-desc">Temporal artery thermometer with automatic sync via the Withings API — same integration as the BPM Vision, no extra setup.</p>
+        <div class="hardware-price">€45</div>
+        <div class="hardware-name">Braun ThermoScan 7</div>
+        <p class="hardware-desc">Clinical-grade ear thermometer. Tympanic measurement is the most reliable proxy for core temperature — used in hospitals worldwide.</p>
         <ul class="feature-list">
           <li>±0.1°C clinical accuracy</li>
-          <li>Automatic daily sync to Vitalix</li>
-          <li>Morning baseline tracking</li>
-          <li>Fever + recovery correlation</li>
-          <li>Withings API — no manual entry</li>
+          <li>Tympanic — core temp proxy</li>
+          <li>Fever + recovery tracking</li>
+          <li>Age Precision system</li>
+          <li>Manual entry into Vitalix</li>
         </ul>
       </div>
     </div>

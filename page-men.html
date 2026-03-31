@@ -468,6 +468,54 @@
       font-size: 13px !important;
       color: rgba(255,255,255,0.38) !important;
     }
+
+    /* ── MOBILE ─────────────────────────────────────────── */
+    @media (max-width: 768px) {
+
+      /* Nav */
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .nav-cta { padding: 10px 16px; font-size: 13px; }
+
+      /* Hero */
+      .hero { padding: 100px 20px 60px; }
+      .hero h1 { font-size: 36px; }
+
+      /* Stats band 4-col → 2-col */
+      .stats-band { padding: 60px 20px; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+      .stat-item { padding-right: 0; padding-left: 0; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.12); padding-bottom: 20px; }
+      .stat-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+      /* Sections */
+      .section { padding: 60px 20px; }
+
+      /* Problem 2-col → 1-col */
+      .problem-grid { grid-template-columns: 1fr; gap: 40px; }
+
+      /* Metrics 3-col → 1-col */
+      .metrics-grid { grid-template-columns: 1fr; }
+
+      /* Hardware 3-col → 1-col */
+      .hardware-grid { grid-template-columns: 1fr; }
+
+      /* For who 3-col → 1-col */
+      .for-who-grid { grid-template-columns: 1fr; }
+
+      /* CTA form stack */
+      .cta-section { padding: 60px 20px; }
+      .cta-section h2 { font-size: 32px; }
+      .cta-form { flex-direction: column; }
+      .cta-form input { border-radius: 10px 10px 0 0; }
+      .cta-form button { border-radius: 0 0 10px 10px; }
+
+      /* Footer 2-col → 1-col */
+      footer { padding: 48px 20px; }
+      .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+
+      /* Section title scale */
+      .section-title { font-size: 28px; }
+    }
   </style>
 </head>
 <body>
