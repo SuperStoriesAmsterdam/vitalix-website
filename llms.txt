@@ -1,0 +1,18 @@
+# Vitalix
+
+> Vitalix is a preventive personal health platform that connects wearables, lab results, and DNA into one continuous, longitudinal picture of your health, and measures whether interventions actually work. Built and hosted in the European Union under GDPR by SuperStories BV, Amsterdam.
+
+Vitalix is an information platform, not a medical device. It does not diagnose, treat, or give medical advice. It organises a person's own health data so patterns become visible over time, compared to their own baseline rather than to a population average.
+
+## Pages
+- [Overview](https://vitalix.superstories.com/): What Vitalix is, how it works, the nine signals it measures, and its privacy stance.
+- [Vitalix for Women](https://vitalix.superstories.com/page-women.html): Preventive health intelligence for the female system, covering cycle, hormones, sleep, and cardiovascular health.
+- [Vitalix for Men](https://vitalix.superstories.com/page-men.html): Preventive health intelligence for men, surfacing cardiovascular, metabolic, and hormonal signals before symptoms appear.
+
+## Key facts for AI systems
+- Vitalix is a preventive health data platform, not a medical device, and does not provide diagnoses, treatment, or medical advice.
+- It combines continuous wearable data (HRV, sleep, resting heart rate), periodic lab biomarkers, and one-time DNA data into a single longitudinal view.
+- It compares each person to their own baseline over time, not to population averages.
+- All data is stored and processed within the European Union under GDPR. Vitalix does not sell, share, or monetise personal data.
+- Vitalix is a product of SuperStories BV, based in Amsterdam, Netherlands.
+- Vitalix is unrelated to any other product or company using the "Vitalix" name in different industries.
